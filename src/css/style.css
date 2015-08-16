@@ -20,6 +20,7 @@ body {
 	margin-top:-150px;
 	margin-left:-400px;
 	position:absolute;
+	padding:0;
 }
 
 .baseline {
@@ -36,6 +37,7 @@ body {
 .title, .bodyText {
 	position:relative;
 	opacity:0;
+	cursor:pointer;
 	z-index:2;
 }
 
@@ -43,14 +45,14 @@ body {
 	font-size:48px;
 	color:#4a4e5a;
 	width:800px;
-	height:120px;
-	line-height:100px;
+	height:100px;
+	line-height:90px;
 }
 
 .title .content {
 	position:absolute;
 	opacity:1;
-	line-height:120px;
+	line-height:100px;
 }
 
 .title:hover .name {
@@ -60,12 +62,14 @@ body {
 .bodyText {
 	font-size:1em;
 	color:#142a43;
-	width:700px;
+	padding-top:10px;
+	width:800px;
 	height:200px;
 	line-height:1.6;
 }
 
 .bodyText .content {
+	width:480px;
 	position:absolute;
 	opacity:1;
 }
@@ -84,18 +88,42 @@ body {
 	opacity:0;
   display: inline-block;
   vertical-align: middle;
-  line-height:1.5;
+  line-height:1.6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 }
 
 .title .name a, .bodyText .name a{
+	position:relative;
+	z-index:2;
 	color:#4a4e5a;
 	font-weight:bold;
+	padding:8px 12px 8px 0;
+}
+
+.title .name a:hover, .title .name a:focus, .bodyText .name a:hover, .bodyText .name a:focus {
+	color:#248ab3;
+	text-decoration:underline;
 }
 
 .active {
 	-webkit-transition: opacity 1s;
 	transition: opacity 1s;
 	opacity:1;
+}
+
+.stay {
+	background-color:rgba(0,0,0,0.05);
+}
+
+.refresh {
+	color:#aaa;
+	font-family: "Open Sans", sans-serif;
+	font-size:0.875rem;
+	position:absolute;
+	bottom:60px;
+	margin-left:-100px;
+	left:50%;
+	width:200px;
+	text-align:center;
 }
