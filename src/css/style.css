@@ -14,28 +14,84 @@ body {
 
 .container {
 	height:300px;
-	width:660px;
+	width:800px;
 	left:50%;
 	top:50%;
-	margin:-150px 0 0 -330px;
+	margin-top:-150px;
+	margin-left:-400px;
 	position:absolute;
 }
 
-.title, .content {
+.baseline {
+	display:block;
+	border-top:1px dashed #eee;
+	border-bottom:1px dashed #eee;
+	height:40px;
+	width:800px;
+	top:38px;
+	position:absolute;
+	z-index:1;
+}
+
+.title, .bodyText {
+	position:relative;
 	opacity:0;
+	z-index:2;
 }
 
 .title {
-	font-size:60px;
-	padding:30px 0;
+	font-size:48px;
 	color:#4a4e5a;
+	width:800px;
+	height:120px;
+	line-height:100px;
 }
 
-.content {
+.title .content {
+	position:absolute;
+	opacity:1;
+	line-height:120px;
+}
+
+.title:hover .name {
+	opacity:1;
+}
+
+.bodyText {
 	font-size:1em;
-	line-height:1.6;
 	color:#142a43;
-	width:460px;
+	width:700px;
+	height:200px;
+	line-height:1.6;
+}
+
+.bodyText .content {
+	position:absolute;
+	opacity:1;
+}
+
+.bodyText:hover .name {
+	opacity:1;
+}
+
+.title .name, .bodyText .name {
+	color:#aaa;
+	font-family: "Open Sans", sans-serif;
+	font-size:0.875rem;
+	margin-left:20px;
+	margin-right:40px;
+	width:160px;
+	opacity:0;
+  display: inline-block;
+  vertical-align: middle;
+  line-height:1.5;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+}
+
+.title .name a, .bodyText .name a{
+	color:#4a4e5a;
+	font-weight:bold;
 }
 
 .active {
