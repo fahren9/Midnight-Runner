@@ -3,17 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Body Title test</title>
+	<title>Midnight Runner | Random font generator from Google Font</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
 	<link rel="stylesheet" href="src/css/style.css">
 </head>
 	<body>
-		<section class="container">
-			<!-- <span class="baseline"></span> -->
-			<h1 class="title"><span class="name"></span><span class="content">Midnight Runner</span></h1>
-			<p class="bodyText"><span class="name"></span><span class="content">We reached the city of Warhoon after some three days march and I was immediately cast into a dungeon and heavily chained to the floor and walls. Food was brought me at intervals but owing to the utter darkness of the place I do not know whether I lay there days, or weeks, or months.</span></p>
-		</section>
-		<span class="refresh">Press spacebar to refresh</span>
+		<div class="viewer">
+			<section class="container">
+				<!-- <span class="baseline"></span> -->
+				<h1 class="title"><span class="name"></span><span class="content">Midnight Runner</span></h1>
+				<p class="bodyText"><span class="name"></span><span class="content">We reached the city of Warhoon after some three days march and I was immediately cast into a dungeon and heavily chained to the floor and walls. Food was brought me at intervals but owing to the utter darkness of the place I do not know whether I lay there days, or weeks, or months.</span></p>
+			</section>
+			<div class="info">
+				<span class="title">Informations</span>
+				<span class="content">Enter to refresh
+				&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; Spacebar to open storage
+				&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; Click on text to prevent refresh
+				<br>MAJ + 1 (until 5) to save your favorite find</span>
+			</div>
+		</div>
+		<div class="storage">
+			<section class="container">
+				<div class="pocket p1" data-pocket="1"></div>
+				<div class="pocket p2" data-pocket="2"></div>
+				<div class="pocket p3" data-pocket="3"></div>
+				<div class="pocket p4" data-pocket="4"></div>
+				<div class="pocket p5" data-pocket="5"></div>
+			</section>
+		</div>
 		<script src="src/js/loadFonts.js"></script>
 	</body>
 </html>

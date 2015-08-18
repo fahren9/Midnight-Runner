@@ -12,7 +12,19 @@ body {
 	height:100%;
 }
 
-.container {
+.viewer {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+
+.viewer.min {
+	width:100%;
+	height:100%;	
+}
+
+.viewer .container {
 	height:300px;
 	width:800px;
 	left:50%;
@@ -34,14 +46,15 @@ body {
 	z-index:1;
 }
 
-.title, .bodyText {
+.viewer .container .title,
+.viewer .container .bodyText {
 	position:relative;
 	opacity:0;
 	cursor:pointer;
 	z-index:2;
 }
 
-.title {
+.viewer .container .title {
 	font-size:48px;
 	color:#4a4e5a;
 	width:800px;
@@ -49,17 +62,17 @@ body {
 	line-height:90px;
 }
 
-.title .content {
+.viewer .container .title .content {
 	position:absolute;
 	opacity:1;
 	line-height:100px;
 }
 
-.title:hover .name {
+.viewer .container .title:hover .name {
 	opacity:1;
 }
 
-.bodyText {
+.viewer .container .bodyText {
 	font-size:1em;
 	color:#142a43;
 	padding-top:10px;
@@ -68,17 +81,18 @@ body {
 	line-height:1.6;
 }
 
-.bodyText .content {
+.viewer .container .bodyText .content {
 	width:480px;
 	position:absolute;
 	opacity:1;
 }
 
-.bodyText:hover .name {
+.viewer .container .bodyText:hover .name {
 	opacity:1;
 }
 
-.title .name, .bodyText .name {
+.viewer .container .title .name,
+.viewer .container .bodyText .name {
 	color:#aaa;
 	font-family: "Open Sans", sans-serif;
 	font-size:0.875rem;
@@ -86,14 +100,15 @@ body {
 	margin-right:40px;
 	width:160px;
 	opacity:0;
-  display: inline-block;
+  display:inline-block;
   vertical-align: middle;
   line-height:1.6;
 	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
+	transition: 				all 0.25s;
 }
 
-.title .name a, .bodyText .name a{
+.viewer .container .title .name a,
+.viewer .container .bodyText .name a{
 	position:relative;
 	z-index:2;
 	color:#4a4e5a;
@@ -101,29 +116,128 @@ body {
 	padding:8px 12px 8px 0;
 }
 
-.title .name a:hover, .title .name a:focus, .bodyText .name a:hover, .bodyText .name a:focus {
+.viewer .container .title .name a:hover,
+.viewer .container .title .name a:focus,
+.viewer .container .bodyText .name a:hover,
+.viewer .container .bodyText .name a:focus {
 	color:#248ab3;
 	text-decoration:underline;
 }
 
-.active {
+.viewer .container .active {
 	-webkit-transition: opacity 1s;
-	transition: opacity 1s;
+	transition: 				opacity 1s;
 	opacity:1;
 }
 
-.stay {
+.viewer .container .stay {
 	background-color:rgba(0,0,0,0.05);
 }
 
-.refresh {
+.viewer .info {
 	color:#aaa;
 	font-family: "Open Sans", sans-serif;
 	font-size:0.875rem;
 	position:absolute;
-	bottom:60px;
-	margin-left:-100px;
+	bottom:0;
+	margin-left:-350px;
 	left:50%;
-	width:200px;
+	width:700px;
+	height:120px;
+	line-height:120px;
 	text-align:center;
+}
+
+.viewer .info > span {
+	position:absolute;
+	display:block;
+	margin-left:-350px;
+	padding-top:40px;
+	left:50%;
+	width:700px;
+	line-height:2;
+}
+
+.viewer .info .title,
+.viewer .info .content {
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: 		opacity 0.5s;
+	-o-transition: 			opacity 0.5s;
+	transition: 				opacity 0.5s;
+}
+
+.viewer .info .title {
+	opacity:1;
+}
+
+.viewer .info .content {
+	opacity:0;
+}
+
+.viewer .info:hover .title {
+	opacity:0;
+}
+
+.viewer .info:hover .content {
+	opacity:1;
+}
+
+.storage {
+	position:absolute;
+	bottom:0;
+	height:200px;
+	width:100%;
+	overflow:hidden;
+	z-index:1;
+}
+
+.storage .container {
+	border-top:1px solid #eee;
+	/*background-color:#F5F5F5;*/
+	position:absolute;
+	bottom:-100px;
+	height:100px;
+	width:100%;
+	-webkit-transition: bottom 0.5s;
+	-moz-transition: 		bottom 0.5s;
+	-o-transition: 			bottom 0.5s;
+	transition: 				bottom 0.5s;
+}
+
+.storage .container.open {
+	bottom:0px;
+}
+
+.storage .container .pocket {
+	display:block;
+	text-align:center;
+	float:left;
+	padding:0 20px;
+	width:20%;
+	line-height:100px;
+	cursor:pointer;
+}
+
+.storage .container .pocket:hover {
+	background-color:rgba(0,0,0,0.05);
+}
+
+.storage .container .pocket .content {
+	display:inline-block;
+	font-family: "Open Sans", sans-serif;
+	line-height:normal;
+	vertical-align:middle;
+}
+
+.storage .container .pocket .content .title {
+	color:#142a43;
+	font-size:1rem;
+	font-weight:bold;
+	line-height:1.5;
+}
+
+.storage .container .pocket .content .bodyText {
+	color:#4a4e5a;
+	font-size:0.875rem;
+	line-height:1.5;
 }
