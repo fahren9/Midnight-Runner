@@ -42,14 +42,13 @@ var mRunner = {
 
 		  	// How many titles and body texts are already changed ?
 		  	for(var z = 0; z < fonts.length; z++) {
-					if(fonts[z].seenT == 1) {
+					if(fonts[z].seenT == 1)
 						seenT += 1;
-					}
-					if(fonts[z].seenBT == 1) {
+					if(fonts[z].seenBT == 1)
 						seenBT += 1;
-					}
 		  	}
-		  	console.log("Title done : " + seenT + " — Body text done : " + seenBT);
+		  	console.log("Title done : " + seenT);
+		  	console.log("Body text done : " + seenBT);
 		  	// Delete the code above
 
 			  WebFont.load({
@@ -93,33 +92,28 @@ var mRunner = {
 
 	keepTitle: function(){
 		var stay = mRunner.title.classList;
-		if(stay.contains('stay')) {
+		if(stay.contains('stay'))
 			stay.remove('stay');
-		} else {
+		else
 			stay.add('stay');
-		}
 	},
 
 	keepBodyText: function(){
 		var stay = mRunner.bodyText.classList;
-		if(stay.contains('stay')) {
+		if(stay.contains('stay'))
 			stay.remove('stay');
-		} else {
+		else
 			stay.add('stay');
-		}
 	},
 
 	refresh: function(e){
-		if(mRunner.title.classList.contains('stay') && mRunner.bodyText.classList.contains('stay')) {
+		if(mRunner.title.classList.contains('stay') && mRunner.bodyText.classList.contains('stay'))
   		return;	
-  	}
 		if(e.keyCode == 13) {
-			if(!mRunner.title.classList.contains('stay')) {
+			if(!mRunner.title.classList.contains('stay'))
 				mRunner.title.classList.remove('active');
-  		}
-			if(!mRunner.bodyText.classList.contains('stay')) {
+			if(!mRunner.bodyText.classList.contains('stay'))
 				mRunner.bodyText.classList.remove('active');
-  		}
 			document.querySelector("html").className = '';
 			mRunner.init();
 		}
@@ -135,14 +129,13 @@ var mRunner = {
 
 
 var pocket = {
-	openShortcut: document.addEventListener('keypress', function(e){
-		if(e.keyCode == 32) {
+	openShortcut: document.addEventListener('keyup', function(e){
+		if(e.keyCode == 32)
 			pocket.open();
-		}
 	}),
 
-	savePocket: document.addEventListener('keypress', function(e){
-		if (e.keyCode == 49 || e.keyCode == 50 || e.keyCode == 51 || e.keyCode == 52 || e.keyCode == 53){
+	savePocket: document.addEventListener('keyup', function(e){
+		if (e.keyCode == 49 || e.keyCode == 50 || e.keyCode == 51 || e.keyCode == 52 || e.keyCode == 53) {
 			var pocketNumb = '';
 			switch(e.keyCode) {
 				case 49:
@@ -182,12 +175,10 @@ var pocket = {
 						bodyText: 		fonts[mRunner.bodyText.getAttribute('attr-pos')].family
 					};
 					localStorage.setItem('pocket' + pocketNumb, JSON.stringify(pocket));
-					if(!document.querySelector('.storage .container').classList.contains('open')) {
-						pocket.openContainer();
-					}
-					
 			  }
 			};
+			if(!document.querySelector('.storage .container .pocket').classList.contains('open'))
+				pocket.open();
 			jsonhttp.send(null);
 		}
 	}),
@@ -209,7 +200,7 @@ var pocket = {
 			}	
 		}
 	},
-	//open = fouiller -> open the pocket container
+	//open the pocket container
 	open: function() {
 		var pockets = document.querySelectorAll('.storage .container .pocket'),
 				viewer = document.querySelector('.viewer'),
@@ -255,16 +246,72 @@ var pocket = {
 						mRunner.loadJSON(fonts.posTitle, fonts.posBodyText);
 		  		}
 				}
-			}
+			};
 		}
 	}
 
 };
 
+var misc = {
+	openAbout: function(e) {
+		e.preventDefault();
+		if(!document.querySelector('.about').classList.contains('open'))
+			document.querySelector('.about').classList.add('open');
+	},
+
+	closeAbout: function(e) {
+		e.preventDefault();
+		if(document.querySelector('.about').classList.contains('open'))
+			document.querySelector('.about').classList.remove('open');
+	},
+
+	editLeft: function(e) {
+		e.preventDefault();
+		if(!document.querySelector('.viewer .container').classList.contains('left')) {
+			document.querySelector('.viewer .container').className = 'container left';
+			document.querySelector('.edit-left').classList.add('active');
+			document.querySelector('.edit-center').classList.remove('active');
+		}
+	},
+
+	editCenter: function(e) {
+		e.preventDefault();
+		if(!document.querySelector('.viewer .container').classList.contains('center')) {
+			document.querySelector('.viewer .container').className = 'container center';
+			document.querySelector('.edit-center').classList.add('active');
+			document.querySelector('.edit-left').classList.remove('active');
+		}
+	},
+
+	close: function(e) {
+		if(e.keyCode == 27) {
+			if(document.querySelector('.about').classList.contains('open'))
+				document.querySelector('.about').classList.remove('open');
+			else if (document.querySelector('.storage .container .pocket').classList.contains('open'))
+				pocket.open();
+		}
+	},
+
+	keyAbout: function(e) {
+		if(e.keyCode == 65) {
+			if(!document.querySelector('.about').classList.contains('open'))
+				document.querySelector('.about').classList.add('open');
+			else if(document.querySelector('.about').classList.contains('open'))
+				document.querySelector('.about').classList.remove('open');
+		}
+	}
+};
+
 window.onload = function(){
-	clickTitle: 	 document.querySelector('.viewer .title').addEventListener('click', mRunner.keepTitle);
-	clickBodyText: document.querySelector('.viewer .bodyText').addEventListener('click', mRunner.keepBodyText);
-	handleRefresh: document.addEventListener('keypress', mRunner.refresh);
+	clickCloseAbout:  document.querySelector('.about .close').addEventListener('click', misc.closeAbout);
+	clickOpenAbout: 	document.querySelector('.btn-about').addEventListener('click', misc.openAbout);
+	clickTitle: 	 		document.querySelector('.viewer .title').addEventListener('click', mRunner.keepTitle);
+	clickBodyText: 		document.querySelector('.viewer .bodyText').addEventListener('click', mRunner.keepBodyText);
+	clickLeft: 				document.querySelector('.edit-left').addEventListener('click', misc.editLeft);
+	clickCenter: 			document.querySelector('.edit-center').addEventListener('click', misc.editCenter);
+	keyRefresh: 			document.addEventListener('keyup', mRunner.refresh);
+	keyClose: 	 			document.addEventListener('keyup', misc.close);
+	keyAbout: 	 			document.addEventListener('keyup', misc.keyAbout);
 	pocket.init();
 	pocket.load();
 	mRunner.createAttr('', '');

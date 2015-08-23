@@ -8,19 +8,18 @@
 	<link rel="stylesheet" href="src/css/style.css">
 </head>
 	<body>
+		<ul class="edition">
+			<li><a href="#" class="edit-left"></a></li>
+			<li><a href="#" class="edit-center active"></a></li>
+		</ul>
+		<ul class="navbar">
+			<li><a href="#" class="btn-about"><span class="openAbout">A</span>About</a></li>
+		</ul>
 		<div class="viewer">
-			<section class="container">
-				<!-- <span class="baseline"></span> -->
+			<section class="container center">
 				<h1 class="title"><span class="name"></span><span class="content">Midnight Runner</span></h1>
 				<p class="bodyText"><span class="name"></span><span class="content">We reached the city of Warhoon after some three days march and I was immediately cast into a dungeon and heavily chained to the floor and walls. Food was brought me at intervals but owing to the utter darkness of the place I do not know whether I lay there days, or weeks, or months.</span></p>
 			</section>
-			<div class="info">
-				<span class="title">Infos</span>
-				<span class="content">Enter to refresh
-				&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; Spacebar to open storage
-				&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; Click on text to prevent refresh
-				<br>MAJ + 1 (until 5) to save your favorite find</span>
-			</div>
 		</div>
 		<div class="storage">
 			<section class="container">
@@ -30,6 +29,33 @@
 				<div class="pocket p4" data-pocket="4"></div>
 				<div class="pocket p5" data-pocket="5"></div>
 			</section>
+		</div>
+		<div class="about">
+			<a href="#" class="close">
+				<span class="des"></span>
+				<span class="asc"></span>
+			</a>
+			<section class="wrap">
+				<article class="container">
+					<h1 class="title">What is it?</h1>
+					<p class="info"><a href="index.html">The Midnight Runner</a> is a fun project using Google Font content. It can be useful for anyone, Designer like Developer or other.<br><br>
+					Value for you: find inspiration, create your own font combinations and discover the unknown fonts of <a href="https://www.google.com/fonts">Google Font</a>.<br><br>
+					This platform is built for laptop with only Javascript, HTML5 and CSS3. <a href="https://github.com/typekit/webfontloader">Webfont Loader</a> is used to load font-face.</p>
+				</article>
+				<article class="container">
+					<h1 class="title">Shortcuts</h1>
+					<ul class="info">
+						<li class=""><span class="enter"></span>Enter to refresh fonts</li>
+						<li class=""><span class="space">Space</span>Spacebar to open your pockets</li>
+						<li class=""><span class="click"></span>Click on text to prevent refresh</li>
+						<li class=""><span class="pocket">1</span>(until 5) to save in your pocket</li>
+						<li class=""><span class="exit">Esc</span>to exit</li>
+					</ul>
+				</article>
+			</section>
+			<footer class="copyright">
+				<p><a href="index.html">The Midnight Runner</a> is a random font generator project by <a href="http://dribbble.com/fahren9">Centis Menant</a>. Powered by <a href="https://www.google.com/fonts">Google Fonts</a>, <a href="https://github.com/typekit/webfontloader">Webfont Loader</a> &amp; love.</p>
+			</ul>
 		</div>
 		<script src="src/js/loadFonts.js"></script>
 	</body>
