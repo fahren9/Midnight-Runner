@@ -16,7 +16,7 @@ body {
 	font-family: "Open Sans", sans-serif;
 	position:absolute;
 	top:24px;
-	left:60px;
+	left:40px;
 	width:400px;
 	height:50px;
 	z-index:10;
@@ -123,6 +123,7 @@ body {
 	width:100%;
 	height:100%;
 	z-index:2;
+	overflow:hidden;
 }
 
 .viewer.min {
@@ -289,10 +290,82 @@ body {
 	text-decoration:underline;
 }
 
+/* FONT INFO */
+
+.fontinfo {
+}
+
+.fontinfo .title,
+.fontinfo .bodyText {
+	position:absolute;
+	margin-left:-480px;
+	width:960px;
+	height:90px;
+	border-radius:8px 8px 0 0;
+	line-height:90px;
+	opacity:0;
+	left:50%;
+	bottom:-90px;
+	font-family: "Open Sans", sans-serif;
+	text-align:center;
+	-webkit-transition: all 0.5s;
+	-moz-transition: 		all 0.5s;
+	-o-transition: 			all 0.5s;
+	transition: 				all 0.5s;
+}
+
+.fontinfo .title.active,
+.fontinfo .bodyText.active {
+	opacity:1;
+	bottom:0;
+}
+
+.fontinfo .title > p,
+.fontinfo .bodyText > p {
+	width:182px;
+	padding:0 20px;
+	font-size:0.75em;
+	color:#aaa;
+	display:inline-block;
+	line-height:1.5;
+	vertical-align:middle;
+	text-transform:uppercase;
+}
+
+.fontinfo .title > p:first-child,
+.fontinfo .bodyText > p:first-child {
+	border-left:none;
+}
+
+.fontinfo .title > p.category,
+.fontinfo .bodyText > p.category,
+.fontinfo .title > p.popularity,
+.fontinfo .bodyText > p.popularity {
+	width:142px;
+	border-right:1px solid #eee;
+}
+
+.fontinfo .title > p.variants,
+.fontinfo .bodyText > p.variants {
+	width:478px;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+}
+
+.fontinfo .title > p > span,
+.fontinfo .bodyText > p > span {
+	display:block;
+	font-size:0.875rem;
+	color:#142a43;
+	text-transform:none;
+}
+
+/* POCKET STORAGE */
+
 .storage {
 	position:absolute;
 	bottom:0;
-	height:200px;
+	height:100px;
 	width:100%;
 	overflow:hidden;
 	z-index:1;
@@ -305,11 +378,8 @@ body {
 	width:100%;
 }
 
-.storage .container .pocket.open {
-	bottom:0px;
-}
-
 .storage .container .pocket {
+	background-color:#172637;
 	position:relative;
 	display:block;
 	text-align:center;
@@ -318,13 +388,20 @@ body {
 	width:20%;
 	bottom:-100px;
 	line-height:100px;
-	border-top:1px solid #eee;
-	border-left:1px solid #eee;
+	border-left:1px solid rgba(255,255,255,0.1);
 	cursor:pointer;
-	-webkit-transition: bottom 0.5s;
-	-moz-transition: 		bottom 0.5s;
-	-o-transition: 			bottom 0.5s;
-	transition: 				bottom 0.5s;
+	-webkit-transform: translate(0);
+	-moz-transform: 	 translate(0);
+	-o-transform: 		 translate(0);
+	transform: 				 translate(0);
+	-webkit-transition: all 0.5s;
+	-moz-transition: 		all 0.5s;
+	-o-transition: 			all 0.5s;
+	transition: 				all 0.5s;
+}
+
+.storage .container .pocket.open {
+	bottom:0;
 }
 
 .storage .container .pocket:first-child {
@@ -332,7 +409,7 @@ body {
 }
 
 .storage .container .pocket:hover {
-	background-color:rgba(0,0,0,0.05);
+	background-color:#273d54;
 }
 
 .storage .container .pocket .content {
@@ -343,14 +420,15 @@ body {
 }
 
 .storage .container .pocket .content .title {
-	color:#142a43;
+	color:#fff;
 	font-size:1rem;
 	font-weight:bold;
 	line-height:1.5;
 }
 
 .storage .container .pocket .content .bodyText {
-	color:#4a4e5a;
+	color:#fff;
+	opacity:0.75;
 	font-size:0.875rem;
 	line-height:1.5;
 }

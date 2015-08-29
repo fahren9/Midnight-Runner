@@ -61,28 +61,39 @@ var mRunner = {
 				mRunner.bodyText.style.fontFamily = fonts[j].family;
 				mRunner.title.style.fontSize = fonts[i].fontTitleSize + "em";
 				mRunner.bodyText.style.fontSize = fonts[j].fontBodySize + "em";
-				mRunner.titleDesc.innerHTML = '<a href="https://www.google.com/fonts/specimen/'
-														+ fonts[i].family
-														+ '" target="_blank" alt="'
-														+ fonts[i].family
-														+ ' on Google Font">'
-														+ fonts[i].family
-														+ '</a><br>'
-														+ emConversion[0]
-														+ 'px '
-													//to delete after set
-														+ fonts[i].seenT + fonts[i].seenBT;
-				mRunner.bodyTextDesc.innerHTML = '<a href="https://www.google.com/fonts/specimen/'
-														+ fonts[j].family
-														+ '" target="_blank" alt="'
-														+ fonts[j].family
-														+ ' on Google Font">'
-														+ fonts[j].family
-														+ '</a><br>'
-														+ emConversion[1]
-														+ 'px '
-													//to delete after set
-														+ fonts[j].seenT + fonts[j].seenBT;
+				mRunner.titleDesc.innerHTML = [
+																				'<a href="https://www.google.com/fonts/specimen/',
+																				fonts[i].family,
+																				'" target="_blank" alt="',
+																				fonts[i].family,
+																				'on Google Font">',
+																				fonts[i].family,
+																				'</a><br>',
+																				emConversion[0],
+																				'px ',
+																		//to delete after set
+																				fonts[i].seenT,
+																				fonts[i].seenBT
+																			].join('');
+
+
+				mRunner.bodyTextDesc.innerHTML = [
+																						'<a href="https://www.google.com/fonts/specimen/',
+																						fonts[j].family,
+																						'" target="_blank" alt="',
+																						fonts[j].family,
+																						'on Google Font">',
+																						fonts[j].family,
+																						'</a><br>',
+																						emConversion[1],
+																						'px ',
+																				//to delete after set
+																						fonts[j].seenT,
+																						fonts[j].seenBT
+																					].join('');
+
+				mRunner.fontInfo("title", fonts[i].category, fonts[i].popularity, fonts[i].voxatypi, fonts[i].variants);
+				mRunner.fontInfo("bodytext", fonts[j].category, fonts[j].popularity, fonts[j].voxatypi, fonts[j].variants);
 				mRunner.title.classList.add('active');
 				mRunner.bodyText.classList.add('active');
 		 	}
@@ -104,6 +115,92 @@ var mRunner = {
 			stay.remove('stay');
 		else
 			stay.add('stay');
+	},
+
+	fontInfo: function(type, category, popularity, voxatypi, variants) {
+		for(var i = 0; i < variants.length; i++) {
+			switch(variants[i]) {
+				case "100":
+					variants[i] = "Thin";
+					break;
+				case "100italic":
+					variants[i] = "Thin italic";
+					break;
+				case "200":
+					variants[i] = "Extra-light";
+					break;
+				case "200italic":
+					variants[i] = "Extra-light italic";
+					break;
+				case "300":
+					variants[i] = "Light";
+					break;
+				case "300italic":
+					variants[i] = "Light italic";
+					break;
+				case "400":
+					variants[i] = "Normal";
+					break;
+				case "400italic":
+					variants[i] = "Italic";
+					break;
+				case "regular":
+					variants[i] = "Normal";
+					break;
+				case "italic":
+					variants[i] = "Italic";
+					break;
+				case "500":
+					variants[i] = "Medium";
+					break;
+				case "500italic":
+					variants[i] = "Medium italic";
+					break;
+				case "600":
+					variants[i] = "Semi-bold";
+					break;
+				case "600italic":
+					variants[i] = "Semi-bold italic";
+					break;
+				case "700":
+					variants[i] = "Bold";
+					break;
+				case "700italic":
+					variants[i] = "Bold italic";
+					break;
+				case "800":
+					variants[i] = "Extra-bold";
+					break;
+				case "800italic":
+					variants[i] = "Extra-bold italic";
+					break;
+				case "900":
+					variants[i] = "Ultra-bold";
+					break;
+				case "900italic":
+					variants[i] = "Ultra-bold italic";
+					break;
+			}
+		}
+		if(type == "title") {
+			document.querySelector('.fontinfo .title .category .content')
+				.innerHTML = category;
+			document.querySelector('.fontinfo .title .popularity .content')
+				.innerHTML = popularity;
+			document.querySelector('.fontinfo .title .voxatypi .content')
+				.innerHTML = voxatypi;
+			document.querySelector('.fontinfo .title .variants .content')
+				.innerHTML = variants.join(', ');
+		} else if(type == "bodytext") {
+			document.querySelector('.fontinfo .bodyText .category .content')
+				.innerHTML = category;
+			document.querySelector('.fontinfo .bodyText .popularity .content')
+				.innerHTML = popularity;
+			document.querySelector('.fontinfo .bodyText .voxatypi .content')
+				.innerHTML = voxatypi;
+			document.querySelector('.fontinfo .bodyText .variants .content')
+				.innerHTML = variants.join(', ');
+		}
 	},
 
 	refresh: function(e){
@@ -252,7 +349,7 @@ var pocket = {
 
 };
 
-var misc = {
+var action = {
 	openAbout: function(e) {
 		e.preventDefault();
 		if(!document.querySelector('.about').classList.contains('open'))
@@ -283,6 +380,20 @@ var misc = {
 		}
 	},
 
+	showInfoTitle: function() {
+		if(!document.querySelector('.fontinfo .title').classList.contains('active'))
+			document.querySelector('.fontinfo .title').classList.add('active');
+		else
+			document.querySelector('.fontinfo .title').classList.remove('active');
+	},
+
+	showInfoBodyText: function() {
+		if(!document.querySelector('.fontinfo .bodyText').classList.contains('active'))
+			document.querySelector('.fontinfo .bodyText').classList.add('active');
+		else
+			document.querySelector('.fontinfo .bodyText').classList.remove('active');
+	},
+
 	close: function(e) {
 		if(e.keyCode == 27) {
 			if(document.querySelector('.about').classList.contains('open'))
@@ -303,15 +414,19 @@ var misc = {
 };
 
 window.onload = function(){
-	clickCloseAbout:  document.querySelector('.about .close').addEventListener('click', misc.closeAbout);
-	clickOpenAbout: 	document.querySelector('.btn-about').addEventListener('click', misc.openAbout);
+	clickCloseAbout:  document.querySelector('.about .close').addEventListener('click', action.closeAbout);
+	clickOpenAbout: 	document.querySelector('.btn-about').addEventListener('click', action.openAbout);
 	clickTitle: 	 		document.querySelector('.viewer .title').addEventListener('click', mRunner.keepTitle);
 	clickBodyText: 		document.querySelector('.viewer .bodyText').addEventListener('click', mRunner.keepBodyText);
-	clickLeft: 				document.querySelector('.edit-left').addEventListener('click', misc.editLeft);
-	clickCenter: 			document.querySelector('.edit-center').addEventListener('click', misc.editCenter);
+	clickLeft: 				document.querySelector('.edit-left').addEventListener('click', action.editLeft);
+	clickCenter: 			document.querySelector('.edit-center').addEventListener('click', action.editCenter);
+	hoverTitle: 			mRunner.title.addEventListener('mouseover', action.showInfoTitle);
+	outTitle: 			mRunner.title.addEventListener('mouseout', action.showInfoTitle);
+	hoverBodyText: 		mRunner.bodyText.addEventListener('mouseover', action.showInfoBodyText);
+	outBodyText: 		mRunner.bodyText.addEventListener('mouseout', action.showInfoBodyText);
 	keyRefresh: 			document.addEventListener('keyup', mRunner.refresh);
-	keyClose: 	 			document.addEventListener('keyup', misc.close);
-	keyAbout: 	 			document.addEventListener('keyup', misc.keyAbout);
+	keyClose: 	 			document.addEventListener('keyup', action.close);
+	keyAbout: 	 			document.addEventListener('keyup', action.keyAbout);
 	pocket.init();
 	pocket.load();
 	mRunner.createAttr('', '');
