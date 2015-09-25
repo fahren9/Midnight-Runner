@@ -1,0 +1,86 @@
+/*
+ *     	._________.    .________________.
+ *		 / ._______°    °_______  _______° 
+ * 		/ /     ___  __    __  / / (_)  .
+ *	 / /    /  __ )  \  / / / / __   /-\
+ *	/ •____/ \___/ /\ \/ / / / / /  /  -\ 
+ *	°.______)____)/__\__/_/_/_/_/__/_____)
+ *
+ *	$RESET
+ *	$ELEMENTS
+ *	$OBJECTS
+ *	$COMPONENTS
+ *	$SPECIFICATIONS
+ *	$TRANSITIONS
+ */
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+.fontinfo--title > p,
+.fontinfo--bodytext > p {
+	width:182px;
+	padding:0 20px;
+	font-size:0.75em;
+	color:#aaa;
+	display:inline-block;
+	line-height:1.5;
+	vertical-align:middle;
+	text-transform:uppercase;
+}
+
+.fontinfo--title > p > span,
+.fontinfo--bodytext > p > span {
+	display:block;
+	font-size:0.875rem;
+	color:#142a43;
+	text-transform:none;
+}
+
+.fontinfo--title,
+.fontinfo--bodytext {
+	position:absolute;
+	margin-left:-480px;
+	width:960px;
+	height:90px;
+	border-radius:8px 8px 0 0;
+	line-height:90px;
+	opacity:0;
+	left:50%;
+	bottom:-90px;
+	font-family: "Open Sans", sans-serif;
+	text-align:center;
+	transition: all 0.5s;
+}
+
+.fontinfo--title > p.fontinfo--title--category,
+.fontinfo--bodytext > p.fontinfo--bodytext--category,
+.fontinfo--title > p.fontinfo--title--popularity,
+.fontinfo--bodytext > p.fontinfo--bodytext--popularity {
+	width:120px;
+	border-right:1px solid #eee;
+}
+
+.fontinfo--title > p.fontinfo--title--variants,
+.fontinfo--bodytext > p.fontinfo--bodytext--variants {
+	width:522px;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+}
+
+.fontinfo--title.active,
+.fontinfo--bodytext.active {
+	opacity:1;
+	bottom:0;
+}
+
+.fontinfo--title > p:first-child,
+.fontinfo--bodytext > p:first-child {
+	border-left:none;
+}
+
+.fontinfo--title > p:last-child,
+.fontinfo--bodytext > p:last-child {
+	border-right:none;
+}

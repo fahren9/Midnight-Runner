@@ -1,0 +1,249 @@
+/*
+ *     	._________.    .________________.
+ *		 / ._______°    °_______  _______° 
+ * 		/ /     ___  __    __  / / (_)  .
+ *	 / /    /  __ )  \  / / / / __   /-\
+ *	/ •____/ \___/ /\ \/ / / / / /  /  -\ 
+ *	°.______)____)/__\__/_/_/_/_/__/_____)
+ *
+ *	$RESET
+ *	$ELEMENTS
+ *	$OBJECTS
+ *	$COMPONENTS
+ *	$SPECIFICATIONS
+ *	$TRANSITIONS
+ */
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+.viewer {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:2;
+	overflow:hidden;
+}
+
+.fontzone {
+	height:300px;
+	width:960px;
+	top:50%;
+	margin-left:80px;
+	margin-top:-150px;
+	position:absolute;
+	padding:0;
+}
+
+.fontzone--title--name a,
+.fontzone--bodytext--name a{
+	position:relative;
+	z-index:2;
+	color:#4a4e5a;
+	font-weight:bold;
+	padding:8px 0;
+}
+
+.viewer.min {
+	width:100%;
+	height:100%;	
+}
+
+.fontzone.left {
+	left:0;
+	right:auto;
+	margin-left:40px;
+}
+
+.fontzone.center {
+	left:50%;
+	right:auto;
+	margin-left:-380px;
+}
+
+.fontzone .reverse {
+	position:absolute;
+	background:url('../img/ico-reverse.png') no-repeat 50% 50%;
+	background-size:20px;
+	left:50%;
+	top:-70px;
+	margin-left:20px;
+	width:40px;
+	height:40px;
+	opacity:0.25;
+	transition: opacity 0.25s;
+}
+
+.fontzone--title,
+.fontzone--bodytext {
+	position:relative;
+	display: inline-block;
+	opacity:0;
+	cursor:pointer;
+	z-index:2;
+}
+
+.fontzone--title {
+	font-size:3em;
+	color:#4a4e5a;
+	width:auto;
+	margin-bottom:6px;
+	line-height:75px;
+}
+
+.fontzone--bodytext {
+	font-size:1em;
+	color:#142a43;
+	width:660px;
+	height:auto;
+}
+
+.fontzone--title--content,
+.fontzone--bodytext--content {
+	position: relative;
+	padding:12px 20px;
+	border-radius:6px;
+	opacity:1;
+}
+
+.fontzone--title--content {
+	line-height:60px;
+	display: inline-block;
+}
+
+.fontzone--bodytext--content {
+	width:480px;
+	display: inline-block;
+}
+
+.fontzone--title--name,
+.fontzone--bodytext--name {
+	width:160px;
+	opacity:0;
+  display:inline-block;
+  line-height:1.6;
+	color:#aaa;
+	font-family: "Open Sans", sans-serif;
+	font-size:0.875rem;
+	transition: opacity 0.25s;
+}
+
+.fontzone--bodytext--name {
+	margin-top:12px;
+}
+
+.fontzone--title .content--locked,
+.fontzone--bodytext .content--locked {
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 40px;
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+.fontzone--title .content--locked {
+	margin-top:24px;
+}
+
+.fontzone--bodytext .content--locked {
+	margin-top:6px;
+}
+
+.fontzone.center .fontzone--title--name,
+.fontzone.center .fontzone--bodytext--name {
+	margin-right:20px;
+	text-align:right;
+	float: left;
+}
+
+.fontzone.center .fontzone--title--name {
+	transform: translateY(50%);
+}
+
+.fontzone.left .fontzone--title--name,
+.fontzone.left .fontzone--bodytext--name {
+	display: inline-block;
+	padding-left: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.fontzone.left .fontzone--title--name {
+	vertical-align: middle;
+}
+
+.fontzone.left .fontzone--title--content,
+.fontzone.left .fontzone--bodytext--content {
+	display: inline-block;
+	margin-left:20px;
+}
+
+.fontzone .content--locked {
+	background: url('../img/ico-stay-off.png') no-repeat 50% 50%;
+	background-size: 18px;
+}
+
+.fontzone .stay .content--locked {
+	background: url('../img/ico-stay-on.png') no-repeat 50% 50%;
+	background-size: 18px;
+}
+
+.fontzone.center .content--locked,
+.fontzone.center .content--locked {
+	right: -40px;
+}
+
+.fontzone.left .content--locked,
+.fontzone.left .content--locked {
+	left: -20px;
+}
+
+.fontzone--title:hover .content--locked,
+.fontzone--bodytext:hover .content--locked {
+	opacity: 0.25;
+}
+
+.fontzone--title.stay .content--locked,
+.fontzone--bodytext.stay .content--locked {
+	opacity: 0;
+}
+
+.fontzone--title.stay:hover .content--locked,
+.fontzone--bodytext.stay:hover .content--locked {
+	opacity: 1;
+}
+
+.fontzone--title:hover .fontzone--title--name,
+.fontzone--bodytext:hover .fontzone--bodytext--name {
+	opacity:1;
+}
+
+.fontzone--title--name a:hover,
+.fontzone--title--name a:focus,
+.fontzone--bodytext--name a:hover,
+.fontzone--bodytext--name a:focus {
+	color:#248ab3;
+	text-decoration:underline;
+}
+
+.fontzone.center .reverse {
+	left:50%;
+	margin-left:-120px;
+}
+
+.fontzone.left .reverse {
+	left:50%;
+	margin-left:-280px;
+}
+
+.fontzone .reverse:hover,
+.fontzone .reverse:focus {
+	opacity:1;
+}
+
+.fontzone .active {
+	transition: opacity 1s;
+	opacity:1;
+}

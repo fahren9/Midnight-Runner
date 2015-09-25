@@ -9,39 +9,43 @@
 </head>
 	<body>
 		<ul class="edition">
-			<li><a href="#" class="edit-left"></a></li>
-			<li><a href="#" class="edit-center active"></a></li>
+			<li><a href="#" class="edition--edit-left"></a></li>
+			<li><a href="#" class="edition--edit-center active"></a></li>
+			<li><a href="#" class="edition--nosmooth">Aa</a></li>
+			<li><a href="#" class="edition--undo">Undo</a></li>
+			<li><a href="#" class="edition--redo">Redo</a></li>
 		</ul>
 		<ul class="navbar">
 			<li><a href="#" class="btn-about"><span class="openAbout">A</span>About</a></li>
 		</ul>
 		<div class="viewer">
-			<section class="container center">
-				<h1 class="title"><span class="name"></span><span class="content">Midnight Runner</span></h1>
-				<p class="bodyText"><span class="name"></span><span class="content">We reached the city of Warhoon after some three days march and I was immediately cast into a dungeon and heavily chained to the floor and walls. Food was brought me at intervals but owing to the utter darkness of the place I do not know whether I lay there days, or weeks, or months.</span></p>
+			<section class="fontzone center">
+				<a href="#" class="reverse"></a>
+				<h1 class="fontzone--title"><span class="content--locked off"></span><span draggable="true" class="fontzone--title--content js-draggable">Midnight Runner</span><span class="fontzone--title--name"></span></h1>
+				<p class="fontzone--bodytext"><span class="content--locked on"></span><span draggable="true" class="fontzone--bodytext--content js-draggable">We reached the city of Warhoon after some three days march and I was immediately cast into a dungeon and heavily chained to the floor and walls. Food was brought me at intervals but owing to the utter darkness of the place I do not know whether I lay there days, or weeks, or months.</span><span class="fontzone--bodytext--name"></span></p>
 			</section>
 			<div class="fontinfo">
-				<section class="title">
-					<p class="category">Category<span class="content"></span></p>
-					<p class="voxatypi">Vox-AtypI ranking<span class="content"></span></p>
-					<p class="variants">Variants<span class="content"></span></p>
-					<p class="popularity">Popularity<span class="content"></span></p>
+				<section class="fontinfo--title">
+					<p class="fontinfo--title--category">Category<span class="fontinfo--title--category--content"></span></p>
+					<p class="fontinfo--title--voxatypi">Vox-AtypI ranking<span class="fontinfo--title--voxatypi--content"></span></p>
+					<p class="fontinfo--title--variants">Variants<span class="fontinfo--title--variants--content"></span></p>
+					<p class="fontinfo--title--popularity">Popularity<span class="fontinfo--title--popularity--content"></span></p>
 				</section>
-				<section class="bodyText">
-					<p class="category">Category<span class="content"></span></p>
-					<p class="voxatypi">Vox-AtypI ranking<span class="content"></span></p>
-					<p class="variants">Variants<span class="content"></span></p>
-					<p class="popularity">Popularity<span class="content"></span></p>
+				<section class="fontinfo--bodytext">
+					<p class="fontinfo--bodytext--category">Category<span class="fontinfo--bodytext--category--content"></span></p>
+					<p class="fontinfo--bodytext--voxatypi">Vox-AtypI ranking<span class="fontinfo--bodytext--voxatypi--content"></span></p>
+					<p class="fontinfo--bodytext--variants">Variants<span class="fontinfo--bodytext--variants--content"></span></p>
+					<p class="fontinfo--bodytext--popularity">Popularity<span class="fontinfo--bodytext--popularity--content"></span></p>
 				</section>
 			</div>
 		</div>
 		<div class="storage">
 			<section class="container">
-				<div class="pocket p1" data-pocket="1"></div>
-				<div class="pocket p2" data-pocket="2"></div>
-				<div class="pocket p3" data-pocket="3"></div>
-				<div class="pocket p4" data-pocket="4"></div>
-				<div class="pocket p5" data-pocket="5"></div>
+				<div class="storage--pocket p1" data-pocket="1"></div>
+				<div class="storage--pocket p2" data-pocket="2"></div>
+				<div class="storage--pocket p3" data-pocket="3"></div>
+				<div class="storage--pocket p4" data-pocket="4"></div>
+				<div class="storage--pocket p5" data-pocket="5"></div>
 			</section>
 		</div>
 		<div class="about">
@@ -59,11 +63,12 @@
 				<article class="container">
 					<h1 class="title">Shortcuts</h1>
 					<ul class="info">
-						<li class=""><span class="enter"></span>Enter to refresh fonts</li>
-						<li class=""><span class="space">Space</span>Spacebar to open your pockets</li>
-						<li class=""><span class="click"></span>Click on text to prevent refresh</li>
-						<li class=""><span class="pocket">1</span>(until 5) to save in your pocket</li>
-						<li class=""><span class="exit">Esc</span>to exit</li>
+						<li class=""><span class="enter"></span> or <span>R</span> to refresh fonts</li>
+						<li class=""><span class="click"></span> Click on text to prevent refresh</li>
+						<li class=""><span>S</span> to reverse font title and body text</li>
+						<li class=""><span class="space">Space</span> to open your pockets</li>
+						<li class=""><span>1</span> until <span>5</span> to save in your pocket</li>
+						<li class=""><span>Esc</span> to exit</li>
 					</ul>
 				</article>
 			</section>
@@ -71,6 +76,18 @@
 				<p><a href="index.html">The Midnight Runner</a> is a font pairing generator project by <a href="http://dribbble.com/fahren9">Centis Menant</a>. Powered by <a href="https://www.google.com/fonts">Google Fonts</a>, <a href="https://github.com/typekit/webfontloader">Webfont Loader</a> &amp; love.</p>
 			</ul>
 		</div>
-		<script src="src/js/loadFonts.js"></script>
+		<script src="src/js/loadFonts.js"></script><!-- 
+		<div class="testeur"></div>
+		<script src="src/js/testeur.js"></script> -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-67195210-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
 	</body>
 </html>

@@ -1,0 +1,162 @@
+/*
+ *     	._________.    .________________.
+ *		 / ._______°    °_______  _______° 
+ * 		/ /     ___  __    __  / / (_)  .
+ *	 / /    /  __ )  \  / / / / __   /-\
+ *	/ •____/ \___/ /\ \/ / / / / /  /  -\ 
+ *	°.______)____)/__\__/_/_/_/_/__/_____)
+ *
+ *	$RESET
+ *	$ELEMENTS
+ *	$OBJECTS
+ *	$COMPONENTS
+ *	$SPECIFICATIONS
+ *	$TRANSITIONS
+ */
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+.edition {
+	font-family: "Open Sans", sans-serif;
+	position:absolute;
+	top:24px;
+	left:40px;
+	width:400px;
+	height:50px;
+	z-index:10;
+}
+
+.edition > li {
+	position:relative;
+	display:block;
+	float:left;
+	margin-left:6px;
+}
+
+.edition > li > a {
+	display:block;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: 		opacity 0.25s;
+	-o-transition: 			opacity 0.25s;
+	transition: 				opacity 0.25s;
+}
+
+.navbar {
+	font-family: "Open Sans", sans-serif;
+	position:absolute;
+	right:0;
+	top:24px;
+	width:200px;
+	height:50px;
+	z-index:10;
+}
+
+.navbar > li {
+	position:relative;
+	display:block;
+	float:right;
+	margin-right:24px;
+}
+
+.navbar > li > a {
+	position:relative;
+	display:block;
+	padding:18px;
+	text-align:center;
+	font-size: 0.875rem;
+	text-transform:uppercase;
+	color:#142a43;
+	opacity:0.75;
+	letter-spacing:2px;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: 		opacity 0.25s;
+	-o-transition: 			opacity 0.25s;
+	transition: 				opacity 0.25s;
+}
+
+.edition--edit-left {
+	background:url('../img/ico-left.png') no-repeat 50% 50%;
+	background-size:20px;
+	opacity:0.25;
+}
+
+.edition--edit-center {
+	background:url('../img/ico-center.png') no-repeat 50% 50%;
+	background-size:20px;
+	opacity:0.25;
+}
+
+.edition--nosmooth {
+	color:#4a4e5a;
+	opacity:1;
+}
+
+.edition--undo {
+	color:#4a4e5a;
+	opacity:0.25;
+	cursor: default;
+}
+
+.edition--redo {
+	color:#4a4e5a;
+	opacity:0.25;
+	cursor: default;
+}
+
+.navbar > li > a .openAbout {
+	padding:9px 15px;
+	margin-right:12px;
+	border:1px solid #ddd;
+	border-radius:36px;
+	font-size: 0.925rem;
+	font-weight:600;
+	letter-spacing:0px;
+	opacity:0.75;
+}
+
+.nosmooth {
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
+}
+
+.edition--edit-left:hover,
+.edition--edit-left:focus,
+.edition--edit-left.active,
+.edition--edit-center:hover,
+.edition--edit-center:focus,
+.edition--edit-center.active,
+.edition--undo.active,
+.edition--redo.active {
+	opacity: 1;
+	cursor: pointer;
+}
+
+
+.edition--nosmooth:hover,
+.edition--nosmooth:focus,
+.edition--nosmooth.active {
+	opacity: 0.25;
+	cursor: pointer;
+}
+
+.edition--undo.active:hover,
+.edition--undo.active:focus,
+.edition--redo.active:hover,
+.edition--redo.active:focus {
+	text-decoration: underline;
+}
+
+.navbar > li > a:hover,
+.navbar > li > a:focus {
+	opacity:1;
+}
+
+.navbar > li > a:hover span,
+.navbar > li > a:focus span {
+	opacity:1;
+}

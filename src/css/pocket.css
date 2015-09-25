@@ -1,0 +1,90 @@
+/*
+ *     	._________.    .________________.
+ *		 / ._______°    °_______  _______° 
+ * 		/ /     ___  __    __  / / (_)  .
+ *	 / /    /  __ )  \  / / / / __   /-\
+ *	/ •____/ \___/ /\ \/ / / / / /  /  -\ 
+ *	°.______)____)/__\__/_/_/_/_/__/_____)
+ *
+ *	$RESET
+ *	$ELEMENTS
+ *	$OBJECTS
+ *	$COMPONENTS
+ *	$SPECIFICATIONS
+ *	$TRANSITIONS
+ */
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+.storage {
+	position:absolute;
+	bottom:0;
+	height:100px;
+	width:100%;
+	overflow:hidden;
+	z-index:1;
+}
+
+.storage .container {
+	position:absolute;
+	bottom:0;
+	height:100px;
+	width:100%;
+}
+
+.storage--pocket {
+	background-color:#172637;
+	position:relative;
+	display:block;
+	text-align:center;
+	float:left;
+	padding:0 20px;
+	width:20%;
+	bottom:-100px;
+	line-height:100px;
+	border-left:1px solid rgba(255,255,255,0.1);
+	cursor:pointer;
+	-webkit-transform: translate(0);
+	-moz-transform: 	 translate(0);
+	-o-transform: 		 translate(0);
+	transform: 				 translate(0);
+	-webkit-transition: all 0.5s;
+	-moz-transition: 		all 0.5s;
+	-o-transition: 			all 0.5s;
+	transition: 				all 0.5s;
+}
+
+.storage--pocket--content {
+	display:inline-block;
+	font-family: "Open Sans", sans-serif;
+	line-height:normal;
+	vertical-align:middle;
+}
+
+.storage--pocket--content--title {
+	color:#fff;
+	font-size:1rem;
+	font-weight:bold;
+	line-height:1.5;
+}
+
+.storage--pocket--content--bodytext {
+	color:#fff;
+	opacity:0.75;
+	font-size:0.875rem;
+	line-height:1.5;
+}
+
+.storage--pocket.open {
+	bottom:0;
+}
+
+.storage--pocket:first-child {
+	border-left:none;
+}
+
+.storage--pocket:hover {
+	background-color:#273d54;
+}
